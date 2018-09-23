@@ -3,7 +3,38 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id = "helloWorld" class = "core.HelloWorld">
-        <property name = "message" value = "Hello World!"/>
+    <bean id="helloWorld" class="core.HelloWorld">
+        <property name="message" value="Hello World!"/>
+    </bean>
+    <bean id="klasaA" class="core.KlasaA">
+        <property name="poleA" value="5"/>
+    </bean>
+
+    <bean id="klasaB" class="core.KlasaB">
+        <property name="obektC" ref="klasaC"/>
+        <property name="obektCC" ref="klasaC"/>
+    </bean>
+
+    <bean id="klasaC" class="core.KlasaC" scope="prototype">
+        <property name="pole" value="qwerty">
+
+        </property>
+    </bean>
+
+    <bean id="klasaD" class="core.KlasaD">
+        <constructor-arg ref="klasaCver2" name="obektC"/>
+        <constructor-arg name="stringList">
+            <list>
+                <value>qqqq</value>
+                <value>wwwww</value>
+                <value>eeee</value>
+                <value>rrrr</value>
+                <value>tttt</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="klasaCver2" class="core.KlasaC">
+        <property name="pole" value="nowy obiekt C"></property>
     </bean>
 </beans>
